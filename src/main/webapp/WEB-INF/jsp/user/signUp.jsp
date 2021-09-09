@@ -22,11 +22,11 @@
 			<div class="login-box">
 				<h2 class="text-center">회원가입</h2>
 				<form>
-					<input type="text" id="idInput" class="form-control" placeholder="아이디">
-					<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
-					<input type="password" class="form-control mt-3" placeholder="비밀번호 확인">
-					<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
-					<input type="text" id="emailInput" class="form-control mt-3" placeholder="이메일 주소">
+					<input type="text" id="id" class="form-control" placeholder="아이디">
+					<input type="password" id="password" class="form-control mt-3" placeholder="비밀번호">
+					<input type="password" id="passwordCheck" class="form-control mt-3" placeholder="비밀번호 확인">
+					<input type="text" id="name" class="form-control mt-3" placeholder="이름">
+					<input type="text" id="email" class="form-control mt-3" placeholder="이메일 주소">
 					<input type="submit" class="btn btn-info btn-block mt-3" value="회원가입">				
 				</form>
 				<div class="text-right mt-3">
