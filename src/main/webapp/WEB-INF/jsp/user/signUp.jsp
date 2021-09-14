@@ -37,7 +37,7 @@
 	
 	<script>
 		$(document).ready(function() {
-			$("#signUpBtn").on("submit", function(e) {
+			$("#signupForm").on("submit", function(e) {
 				e.preventDefault();
 				
 				var loginId = $("#loginIdInput").val();
@@ -47,14 +47,34 @@
 				var email = $("#emailInput").val();
 					
 				if(loginId == null || loginId == "") {
+					alert("아이디을 입력하세요");
+					return;
+				}
+				
+				if(password == null || password == "") {
+					alert("비밀번호를 입력하세요");
+					return;
+				}
+				
+				if(password != passwordConfirm) {
+					alert("비밀번호가 일치하지않습니다");
+					return;
+				}
+				
+				if(name == null || name == "") {
 					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(email == null || email == "") {
+					alert("이메일을 입력하세요");
 					return;
 				}
 				
 				$.ajax({
 					type:"post",
 					url:"/user/sign_up",
-					data:{"loginId":loginId, "password":password, "name":name, "email":eamil},
+					data:{"loginId":loginId, "password":password, "name":name, "email":email},
 					success:function(data) {
 						if(data.result == "success") {
 							location.href="/user/signin_view";
