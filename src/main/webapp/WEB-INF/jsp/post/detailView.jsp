@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모 입력</title>
+<title>메모 상세 & 수정</title>
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,67 +19,22 @@
 		
 		<section class="d-flex justify-content-center">
 			<div class="w-75 my-4">
-				<h1 class="text-center">메모 입력</h1>
+				<h1 class="text-center">메모</h1>
 				
 				<div class="d-flex my-3">
 					<label class="mr-3">제목 : </label>
-					<input type="text" class="form-control col-11" id="titleInput">		
+					<input type="text" class="form-control col-11" id="titleInput" value="${memo.subject }">		
 				</div>
-				<textarea class="form-control my-3" rows="5" id="contentInput"></textarea>
-				<!-- MIME text/html image/jpeg -->
-				<input type="file" accept="image/*" id="fileInput" multiple>
+				<textarea class="form-control my-3" rows="5" id="contentInput">${memo.content }</textarea>
+				<img src="${memo.imagePath }">
 				<div class="d-flex justify-content-between my-3">
 					<a href="/post/list_view" class="btn btn-info">목록으로</a>
-					<button type="button" class="btn btn-success" id="saveBtn">저장하기</button>			
+					<button type="button" class="btn btn-success" id="updateBtn">수정</button>			
 				</div>
 			</div>
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
-	
-	<script>
-		$(document).ready(function() {
-			$("#saveBtn").on("click", function() {
-				var title = $("#titleInput").val();
-				var content = $("#contentInput").val().trim();
-				var file = $("#fileInput").val();
-				
-				if(title == null || title == "") {
-					alert("제목을 입력하세요");
-					return;
-				}
-				
-				if(content == null || content == "") {
-					alert("내용을 입력하세요");
-					return;
-				}
-				
-				var formData = new FormData();
-				formData.append("subject", title);
-				formData.append("content", content);
-				formData.append("file", $("#fileInput")[0].files[0]);
-				
-				$.ajax({
-					enctype:"multipart/form-data",	//파일업로드 필수
-					processData:false,	//파일업로드 필수
-					contentType:false,	//파일업로드 필수
-					type:"post",
-					url:"/post/create",
-					data:formData,
-					success:function(data) {
-						if(data.result == "success") {
-							location.href="/post/list_view";
-						} else {
-							alert("메모 저장 실패");
-						}
-					},
-					error:function(e) {
-						alert("error");
-					}
-				});
-			});
-		});
-	</script>
 </body>
 </html>
