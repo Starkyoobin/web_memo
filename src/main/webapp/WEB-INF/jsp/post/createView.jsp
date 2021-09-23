@@ -43,7 +43,6 @@
 			$("#saveBtn").on("click", function() {
 				var title = $("#titleInput").val();
 				var content = $("#contentInput").val().trim();
-				var file = $("#fileInput").val();
 				
 				if(title == null || title == "") {
 					alert("제목을 입력하세요");

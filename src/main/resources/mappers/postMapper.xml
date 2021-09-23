@@ -39,7 +39,7 @@
 	</select>
 	
 	<select id="selectMemo"  resultType="com.starkyb.memo.post.model.Post"
-	parameterType="int">
+	parameterType="map">
 		SELECT
 			`id`
 			, `userId`

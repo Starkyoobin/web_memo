@@ -19,14 +19,16 @@
 		
 		<section class="d-flex justify-content-center">
 			<div class="w-75 my-4">
-				<h1 class="text-center">메모</h1>
+				<h1 class="text-center">메모 상세</h1>
 				
 				<div class="d-flex my-3">
 					<label class="mr-3">제목 : </label>
 					<input type="text" class="form-control col-11" id="titleInput" value="${memo.subject }">		
 				</div>
 				<textarea class="form-control my-3" rows="5" id="contentInput">${memo.content }</textarea>
-				<img src="${memo.imagePath }">
+				<div class="d-flex justify-content-center">
+					<img width="600px" src="${memo.imagePath }">				
+				</div>
 				<div class="d-flex justify-content-between my-3">
 					<a href="/post/list_view" class="btn btn-info">목록으로</a>
 					<button type="button" class="btn btn-success" id="updateBtn">수정</button>			
@@ -36,5 +38,13 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#updateBtn").on("click", function() {
+				
+			});
+		});
+	</script>
 </body>
 </html>

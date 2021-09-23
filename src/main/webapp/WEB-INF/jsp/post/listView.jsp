@@ -20,9 +20,9 @@
 		
 		<section>
 			<div class="d-flex justify-content-center">
-				<div class="w-75 my-5 text-center">
-					<h1>메모 리스트</h1>
-					<table class="table">
+				<div class="w-75 my-5">
+					<h1 class="text-center">메모 리스트</h1>
+					<table class="table text-center">
 						<thead>
 							<tr>
 								<td>No.</td>
