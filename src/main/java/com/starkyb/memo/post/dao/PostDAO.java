@@ -20,4 +20,8 @@ public interface PostDAO {
 	public Post selectMemo(
 			@Param("id") int id
 			, @Param("userId") int userId);
+	//삭제하기
+	public int deleteMemo(
+			@Param("id") int id
+			, @Param("userId") int userId);
 }

@@ -36,4 +36,14 @@ public class PostBO {
 	public Post getMemo(int id, int userId) {
 		return postDAO.selectMemo(id, userId);
 	}
+	//삭제하기
+	public int removeMemo(int id, int userId) {
+		Post post = this.getMemo(id, userId);
+		
+		if(post.getImagePath() != null) {
+			FileManagerService.removeFile(post.getImagePath());			
+		}
+				
+		return postDAO.deleteMemo(id, userId);
+	}
 }

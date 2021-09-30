@@ -48,4 +48,32 @@ public class FileManagerService {
 		//<img src="/images/43_381281298129/test.png">
 		return "/images/" + directoryName + file.getOriginalFilename();
 	}
+	
+	public static void removeFile(String filePath) {
+		//filePath
+		//post테이블에 있는 imagePath
+		//ex) /images/1-201020123/test.png
+		//실제 경로 ex) C:\\Users\\yb010\\Desktop\\Web\\SPRINGTEST\\memo\\images\1-201020123\test.png
+		String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
+		Path path = Paths.get(realFilePath);
+		
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {				
+				e.printStackTrace();
+			}
+		}
+		
+		//디렉토리(폴더) 삭제
+		path = path.getParent();
+		
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

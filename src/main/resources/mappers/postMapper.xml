@@ -54,4 +54,14 @@
 			`userId` = #{userId }
 			AND `id` = #{id };
 	</select>
+	
+	<delete id="deleteMemo" parameterType="int">
+		DELETE
+		FROM
+			`post`
+		WHERE
+			`id` = #{id}
+		AND
+			`userId` = #{userId};
+	</delete>
 </mapper>
