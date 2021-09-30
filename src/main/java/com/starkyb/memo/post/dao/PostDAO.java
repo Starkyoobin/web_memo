@@ -24,4 +24,10 @@ public interface PostDAO {
 	public int deleteMemo(
 			@Param("id") int id
 			, @Param("userId") int userId);
+	//수정하기
+	public int updateMemo(
+			@Param("id") int id
+			, @Param("subject") String subject
+			, @Param("content") String content
+			, @Param("userId") int userId);
 }

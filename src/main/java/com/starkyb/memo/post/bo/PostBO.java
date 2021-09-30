@@ -46,4 +46,8 @@ public class PostBO {
 				
 		return postDAO.deleteMemo(id, userId);
 	}
+	//수정하기
+	public int updateMemo(int id, String subject, String content, int userId) {
+		return postDAO.updateMemo(id, subject, content, userId);
+	}
 }
