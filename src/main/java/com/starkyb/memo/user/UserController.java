@@ -24,6 +24,7 @@ public class UserController {
 	public String signOut(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
+		session.removeAttribute("userId");
 		session.removeAttribute("userLoginId");
 		session.removeAttribute("userName");
 		
